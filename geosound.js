@@ -46,6 +46,11 @@ function initGoogleMap() {
 		  scale: 10
 		}
 	  });
+	  
+	var ctaLayer = new google.maps.KmlLayer({
+		url: 'geoSound1000.kml',
+		map: g_mapObj
+	  });
 
 }
 
