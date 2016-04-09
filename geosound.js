@@ -28,40 +28,25 @@ var g_youAreHere;
 // parameter when you first load the API. For example:
 // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=geometry">
 
-function initGoogleMap() {
-	
+function initGoogleMap() {	
 	g_mapObj = new google.maps.Map(document.getElementById('map'), {
 	  center: {lat: 0, lng: 0},
 	  zoom: 5,
 	});
 	
-	var triangleCoords = [
-	  {lat: 25.774, lng: -80.19},
-	  {lat: 18.466, lng: -66.118},
-	  {lat: 32.321, lng: -64.757}
-	];
-
-	var bermudaTriangle = new google.maps.Polygon({paths: triangleCoords});
-
-	google.maps.event.addListener(map, 'click', function(e) {
-	  var resultColor =
-		  google.maps.geometry.poly.containsLocation(e.latLng, bermudaTriangle) ?
-		  'red' :
-		  'green';
-
-	  new google.maps.Marker({
-		position: e.latLng,
+    g_youAreHere = new google.maps.Marker({
+		position: {lat: 0, lng: 0},
 		map: g_mapObj,
 		icon: {
 		  path: google.maps.SymbolPath.CIRCLE,
-		  fillColor: resultColor,
+		  fillColor: 'red',
 		  fillOpacity: .2,
 		  strokeColor: 'white',
 		  strokeWeight: .5,
 		  scale: 10
 		}
 	  });
-	});
+
 }
 
 // //////
@@ -113,18 +98,7 @@ function showPosition(location) {
 		lat: location.coords.latitude,
 		lng: location.coords.longitude
 	};
-    g_youAreHere = new google.maps.Marker({
-		position: latLng,
-		map: g_mapObj,
-		icon: {
-		  path: google.maps.SymbolPath.CIRCLE,
-		  fillColor: 'red',
-		  fillOpacity: .2,
-		  strokeColor: 'white',
-		  strokeWeight: .5,
-		  scale: 10
-		}
-	  });
+	g_youAreHere.setPosition(latLng);
     g_mapObj.setCenter( latLng );
     g_mapObj.setZoom(11);
 
