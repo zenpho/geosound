@@ -20,6 +20,7 @@ var g_locations = {
 };
 
 var g_mapObj;
+var g_youAreHere;
 
 // //////
 
@@ -104,18 +105,16 @@ function getLocation() {
 
 function showPosition(location) {
 	var output = document.getElementById("output");
-
     output.innerHTML = "Latitude: " + location.coords.latitude + 
     "<br>Longitude: " + location.coords.longitude;	
     
-    //playSoundForLocation(location);
     
+    // scroll map to location and show your location
     var latLng = {
 		lat: location.coords.latitude,
 		lng: location.coords.longitude
 	};
-    
-    new google.maps.Marker({
+    g_youAreHere = new google.maps.Marker({
 		position: latLng,
 		map: g_mapObj,
 		icon: {
@@ -128,7 +127,9 @@ function showPosition(location) {
 		  scale: 10
 		}
 	  });
-    
     g_mapObj.setCenter( latLng );
+
+	//    
+	//playSoundForLocation(location);
     
 }
