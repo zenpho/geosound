@@ -19,8 +19,61 @@ var g_locations = {
 	}
 };
 
+var g_mapObj;
+
+// //////
+
+// This example requires the Geometry library. Include the libraries=geometry
+// parameter when you first load the API. For example:
+// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=geometry">
+
+function initGoogleMap() {
+	
+	var map = new google.maps.Map(document.getElementById('map'), {
+	  center: {lat: 0, lng: 0},
+	  zoom: 5,
+	});
+	
+	var triangleCoords = [
+	  {lat: 25.774, lng: -80.19},
+	  {lat: 18.466, lng: -66.118},
+	  {lat: 32.321, lng: -64.757}
+	];
+
+	var bermudaTriangle = new google.maps.Polygon({paths: triangleCoords});
+
+	google.maps.event.addListener(map, 'click', function(e) {
+	  var resultColor =
+		  google.maps.geometry.poly.containsLocation(e.latLng, bermudaTriangle) ?
+		  'red' :
+		  'green';
+
+	  g_mapObj = new google.maps.Marker({
+		position: e.latLng,
+		map: map,
+		icon: {
+		  path: google.maps.SymbolPath.CIRCLE,
+		  fillColor: resultColor,
+		  fillOpacity: .2,
+		  strokeColor: 'white',
+		  strokeWeight: .5,
+		  scale: 10
+		}
+	  });
+	});
+}
+
+// //////
+
+function doStartup() {
+	initGoogleMap();
+	getLocation();
+}
+
+// //////
+
 function playSoundForLocation(location) {
-	for each (obj in g_locations) {
+	for (obj in g_locations) {
 		var radius = obj.radius;
 		var lat = obj.latitude;
 		var lon = obj.longitude;
@@ -56,4 +109,8 @@ function showPosition(location) {
     "<br>Longitude: " + location.coords.longitude;	
     
     playSoundForLocation(location);
+    
+    var latlng = google.maps.LatLng(location.coords.latitude, location.coords.longitude);
+    g_map.setCenter(latlng);
+    
 }

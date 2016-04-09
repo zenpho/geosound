@@ -1,3 +1,9 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
 P#output {
 	text-align: center
 }
@@ -10,4 +16,9 @@ DIV#controls > INPUT {
 DIV#controls > BUTTON {
 	font-size: 5em;
 	padding: 10px;
+}
+
+DIV#map {
+	height: 40%;
+	width: 40%;
 }
