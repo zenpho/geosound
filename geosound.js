@@ -35,7 +35,7 @@ function initGoogleMap() {
 	});
 	
     g_youAreHere = new google.maps.Marker({
-		position: {lat: 0, lng: 0},
+		position: {lat: 51, lng: -2},
 		map: g_mapObj,
 		icon: {
 		  path: google.maps.SymbolPath.CIRCLE,
@@ -48,7 +48,7 @@ function initGoogleMap() {
 	  });
 	  
 	var ctaLayer = new google.maps.KmlLayer({
-		url: 'geoSound1000.kml',
+		url: 'http://zenpho.github.io/geosound/places.kml',
 		map: g_mapObj
 	  });
 
