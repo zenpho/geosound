@@ -19,7 +19,6 @@ var g_locations = {
 	}
 };
 
-// google map object - initially undefined
 var g_mapObj;
 
 // //////
@@ -30,7 +29,7 @@ var g_mapObj;
 
 function initGoogleMap() {
 	
-	var map = new google.maps.Map(document.getElementById('map'), {
+	g_mapObj = new google.maps.Map(document.getElementById('map'), {
 	  center: {lat: 0, lng: 0},
 	  zoom: 5,
 	});
@@ -49,9 +48,9 @@ function initGoogleMap() {
 		  'red' :
 		  'green';
 
-	  g_mapObj = new google.maps.Marker({
+	  new google.maps.Marker({
 		position: e.latLng,
-		map: map,
+		map: g_mapObj,
 		icon: {
 		  path: google.maps.SymbolPath.CIRCLE,
 		  fillColor: resultColor,
@@ -111,7 +110,11 @@ function showPosition(location) {
     
     playSoundForLocation(location);
     
-    var latlng = google.maps.LatLng(location.coords.latitude, location.coords.longitude);
-    g_mapObj.setCenter(latlng);
+    g_mapObj.setCenter(
+    	{
+			lat: location.coords.latitude,
+			lng: location.coords.longitude
+    	}
+    );
     
 }
