@@ -110,11 +110,25 @@ function showPosition(location) {
     
     //playSoundForLocation(location);
     
-    g_mapObj.setCenter(
-    	{
-			lat: location.coords.latitude,
-			lng: location.coords.longitude
-    	}
-    );
+    var latLng = {
+		lat: location.coords.latitude,
+		lng: location.coords.longitude
+	};
+    
+    new google.maps.Marker({
+		position: latLng,
+		map: g_mapObj,
+		icon: {
+		  title: "you are here",
+		  path: google.maps.SymbolPath.CIRCLE,
+		  fillColor: 'red',
+		  fillOpacity: .2,
+		  strokeColor: 'white',
+		  strokeWeight: .5,
+		  scale: 10
+		}
+	  });
+    
+    g_mapObj.setCenter( latLng );
     
 }
