@@ -19,6 +19,7 @@ var g_locations = {
 	}
 };
 
+// google map object - initially undefined
 var g_mapObj;
 
 // //////
@@ -111,6 +112,6 @@ function showPosition(location) {
     playSoundForLocation(location);
     
     var latlng = google.maps.LatLng(location.coords.latitude, location.coords.longitude);
-    g_map.setCenter(latlng);
+    g_mapObj.setCenter(latlng);
     
 }
