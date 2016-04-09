@@ -108,7 +108,7 @@ function showPosition(location) {
     output.innerHTML = "Latitude: " + location.coords.latitude + 
     "<br>Longitude: " + location.coords.longitude;	
     
-    playSoundForLocation(location);
+    //playSoundForLocation(location);
     
     g_mapObj.setCenter(
     	{
