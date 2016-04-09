@@ -117,8 +117,8 @@ function showPosition(location) {
 	g_youAreHere = new google.maps.Marker({
 		position: latLng,
 		map: g_mapObj,
-		label: "you are here"
 	});
+	g_youAreHere.openInfoWindow("you are here");
 	/*
     g_youAreHere = new google.maps.Marker({
 		position: latLng,
