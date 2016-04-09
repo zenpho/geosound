@@ -122,7 +122,7 @@ function showPosition(location) {
 		  fillOpacity: .2,
 		  strokeColor: 'white',
 		  strokeWeight: .5,
-		  scale: 30
+		  scale: 10
 		}
 	  });
     g_mapObj.setCenter( latLng );
