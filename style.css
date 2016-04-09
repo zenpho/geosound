@@ -1,0 +1,13 @@
+P#output {
+	text-align: center
+}
+
+DIV#controls > INPUT {
+	font-size: 5em;
+	padding: 10px;
+}
+
+DIV#controls > BUTTON {
+	font-size: 5em;
+	padding: 10px;
+}
