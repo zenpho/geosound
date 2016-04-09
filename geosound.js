@@ -114,6 +114,12 @@ function showPosition(location) {
 		lat: location.coords.latitude,
 		lng: location.coords.longitude
 	};
+	g_youAreHere = new google.maps.Marker({
+		position: latLng,
+		map: g_mapObj,
+		label: "you are here",
+	};
+	/*
     g_youAreHere = new google.maps.Marker({
 		position: latLng,
 		map: g_mapObj,
@@ -127,6 +133,7 @@ function showPosition(location) {
 		  scale: 10
 		}
 	  });
+	*/
     g_mapObj.setCenter( latLng );
     g_mapObj.setZoom(11);
 
