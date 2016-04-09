@@ -113,27 +113,18 @@ function showPosition(location) {
 		lat: location.coords.latitude,
 		lng: location.coords.longitude
 	};
-	g_youAreHere = new google.maps.InfoWindow({
-    	content: "you are here",
-    	position: latLng,
-    	map: g_mapObj
-  	});
-  	g_youAreHere.open();
-	/*
     g_youAreHere = new google.maps.Marker({
 		position: latLng,
 		map: g_mapObj,
 		icon: {
-		  title: "you are here",
 		  path: google.maps.SymbolPath.CIRCLE,
 		  fillColor: 'red',
 		  fillOpacity: .2,
 		  strokeColor: 'white',
 		  strokeWeight: .5,
-		  scale: 10
+		  scale: 30
 		}
 	  });
-	*/
     g_mapObj.setCenter( latLng );
     g_mapObj.setZoom(11);
 
