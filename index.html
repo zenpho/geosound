@@ -5,6 +5,17 @@
 P#output {
 	text-align: center
 }
+
+DIV#controls > INPUT {
+	font-size: 5em;
+	padding: 10px;
+}
+
+DIV#controls > BUTTON {
+	font-size: 5em;
+	padding: 10px;
+}
+
 </style>
 
 <script>
@@ -32,7 +43,10 @@ function showPosition(location) {
 
 <body onload="getLocation()">
 
-<button onclick="getLocation()">Update Location</button>
+<div id="controls">
+	<button onclick="getLocation()">Update Location</button>
+</div>
+
 <p id="output">
 Loading... 
 </p>
