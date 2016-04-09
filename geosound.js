@@ -1,5 +1,5 @@
 SC.initialize({
-  client_id: '20db646acdd118c6ca2f6bab01211a3f85337534b2f079b0eec0a9b895b9d20cf11bcbef81fcfcc324d2eafbc52eb1e'
+  client_id: '790956356ed17e41bfaa38f216122674'
 });
 
 var g_locations = {
@@ -11,7 +11,6 @@ var g_locations = {
 	2 : {
 	}
 };
-
 
 function playSoundForLocation(location) {
 	// stream track id 293
