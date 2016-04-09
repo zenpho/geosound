@@ -108,17 +108,17 @@ function showPosition(location) {
     output.innerHTML = "Latitude: " + location.coords.latitude + 
     "<br>Longitude: " + location.coords.longitude;	
     
-    
     // scroll map to location and show your location
     var latLng = {
 		lat: location.coords.latitude,
 		lng: location.coords.longitude
 	};
-	g_youAreHere = new google.maps.Marker({
-		position: latLng,
-		map: g_mapObj,
-	});
-	g_youAreHere.openInfoWindow("you are here");
+	g_youAreHere = new google.maps.InfoWindow({
+    	content: "you are here",
+    	position: latLng,
+    	map: g_mapObj
+  	});
+  	g_youAreHere.open();
 	/*
     g_youAreHere = new google.maps.Marker({
 		position: latLng,
