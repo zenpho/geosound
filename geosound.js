@@ -128,6 +128,7 @@ function showPosition(location) {
 		}
 	  });
     g_mapObj.setCenter( latLng );
+    g_mapObj.setZoom(11);
 
 	//    
 	//playSoundForLocation(location);
