@@ -39,7 +39,7 @@ function initGoogleMap() {
 	  });
 	  
 	g_kmlLayer = new google.maps.KmlLayer({
-		url: 'http://zenpho.github.io/geosound/zones.kml',
+		url: 'http://zenpho.github.io/geosound/zpo.kml',
 		map: g_mapObj
 	  });
 
@@ -47,12 +47,11 @@ function initGoogleMap() {
 	google.maps.event.addListener(g_mapObj, 'mousemove', function (event) {
 		displayCoordinates(event.latLng);               
 	});
-	
-	g_kmlLayer.addListener(g_mapObj, 'click', function(event) {
-		var fd = kmlEvent.featureData;
-		console.log(fd);
-	});
 	*/
+	
+	g_kmlLayer.addListener('click', function(kmlEvent) {
+		console.log(kmlEvent.featureData);
+	});
 }
 
 // //////
