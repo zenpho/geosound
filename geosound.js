@@ -26,7 +26,7 @@ function initGoogleMap() {
 	});
 	
     g_youAreHere = new google.maps.Marker({
-		position: {lat: 51, lng: -2},
+		position: {lat: 41, lng: 87},
 		map: g_mapObj,
 		icon: {
 		  path: google.maps.SymbolPath.CIRCLE,
@@ -39,7 +39,7 @@ function initGoogleMap() {
 	  });
 	  
 	g_kmlLayer = new google.maps.KmlLayer({
-		url: 'http://zenpho.github.io/geosound/zones.kml',
+		url: 'http://zenpho.github.io/geosound/chicago.kml',
 		map: g_mapObj
 	  });
 
@@ -59,7 +59,7 @@ function initGoogleMap() {
 
 function doStartup() {
 	initGoogleMap();
-	getLocation();
+	//getLocation();
 }
 
 // //////
