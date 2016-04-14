@@ -2,37 +2,33 @@
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <Document>
 	<name>zones.kml</name>
-	<Folder>
-		<name>geosound</name>
-		<open>1</open>
-		<Placemark>
-			<name>speak low</name>
-			<description>https://soundcloud.com/zenpho/speak-low</description>
-			<Polygon>
-				<tessellate>1</tessellate>
-				<outerBoundaryIs>
-					<LinearRing>
-						<coordinates>
-							-2.500288344775687,51.39700499031854,0 -2.498060252895401,51.32181023701559,0 -2.36382504270218,51.31635621044938,0 -2.366137029751538,51.39908153156171,0 -2.500288344775687,51.39700499031854,0 
-						</coordinates>
-					</LinearRing>
-				</outerBoundaryIs>
-			</Polygon>
-		</Placemark>
-		<Placemark>
-			<name>psg</name>
-			<description>https://soundcloud.com/zenpho/bleepciana</description>
-			<Polygon>
-				<tessellate>1</tessellate>
-				<outerBoundaryIs>
-					<LinearRing>
-						<coordinates>
-							-2.671590243999848,51.51328571216956,0 -2.656476381356796,51.3872781128505,0 -2.588090384554419,51.38919728551731,0 -2.606848998108262,51.5074983469014,0 -2.671590243999848,51.51328571216956,0 
-						</coordinates>
-					</LinearRing>
-				</outerBoundaryIs>
-			</Polygon>
-		</Placemark>
-	</Folder>
+	<Placemark>
+		<name>speak low</name>
+		<description>https://soundcloud.com/zenpho/speak-low</description>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						-2.500288344775687,51.39700499031854,0 -2.498060252895401,51.32181023701559,0 -2.36382504270218,51.31635621044938,0 -2.366137029751538,51.39908153156171,0 -2.500288344775687,51.39700499031854,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark>
+		<name>psg</name>
+		<description>https://soundcloud.com/zenpho/bleepciana</description>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						-2.671590243999848,51.51328571216956,0 -2.656476381356796,51.3872781128505,0 -2.588090384554419,51.38919728551731,0 -2.606848998108262,51.5074983469014,0 -2.671590243999848,51.51328571216956,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
 </Document>
 </kml>
