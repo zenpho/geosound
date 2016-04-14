@@ -43,6 +43,7 @@ function initGoogleMap() {
 		map: g_mapObj
 	  });
 
+	/*
 	google.maps.event.addListener(g_mapObj, 'mousemove', function (event) {
 		displayCoordinates(event.latLng);               
 	});
@@ -51,6 +52,7 @@ function initGoogleMap() {
 		var fd = kmlEvent.featureData;
 		console.log(fd);
 	});
+	*/
 }
 
 // //////
