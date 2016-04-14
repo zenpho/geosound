@@ -8,19 +8,9 @@ Number.prototype.between = function (min, max) {
     return this > min && this < max;
 };
 
-var g_locations = {
-	1 : {
-		latitude : 51.48,
-		longitude : -2.51,
-		radius : 0.01,
-		track : 293 		// soundcloud track id
-	},
-	2 : {
-	}
-};
-
 var g_mapObj;
 var g_youAreHere;
+var g_kmlLayer;
 
 // //////
 
@@ -47,7 +37,7 @@ function initGoogleMap() {
 		}
 	  });
 	  
-	var ctaLayer = new google.maps.KmlLayer({
+	g_kmlLayer = new google.maps.KmlLayer({
 		url: 'http://zenpho.github.io/geosound/places.kml',
 		map: g_mapObj
 	  });
