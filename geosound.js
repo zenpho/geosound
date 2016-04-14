@@ -14,9 +14,8 @@ var g_kmlLayer;
 
 // //////
 
-// This example requires the Geometry library. Include the libraries=geometry
-// parameter when you first load the API. For example:
-// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=geometry">
+// Include the libraries=geometry parameter when you first load the API. For example:
+// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&libraries=geometry">
 
 function initGoogleMap() {	
 	g_mapObj = new google.maps.Map(document.getElementById('map'), {
@@ -42,6 +41,14 @@ function initGoogleMap() {
 		map: g_mapObj
 	  });
 
+	google.maps.event.addListener(g_mapObj, 'mousemove', function (event) {
+		displayCoordinates(event.latLng);               
+	});
+	
+	g_kmlLayer.addListener(g_mapObj, 'click', function(event) {
+		var fd = kmlEvent.featureData;
+		console.log(fd);
+	});
 }
 
 // //////
@@ -69,6 +76,13 @@ function playSoundForLocation(location) {
 		}
 	}
 }
+
+function displayCoordinates(latlng) {
+	var lat = latlng.lat();
+	var lng = latlng.lng();
+	console.log("Mousepos " + lat + ", " + lng);
+}
+
 
 function getLocation() {
 	var output = document.getElementById("output");
