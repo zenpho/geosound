@@ -3,6 +3,8 @@ SC.initialize({
   client_id: '790956356ed17e41bfaa38f216122674' // zenpho
 });
 
+console.log("v1");
+
 // is a number between a minimum and maximum?
 Number.prototype.between = function (min, max) {
     return this > min && this < max;
