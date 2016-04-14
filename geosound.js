@@ -39,7 +39,7 @@ function initGoogleMap() {
 	  });
 	  
 	g_kmlLayer = new google.maps.KmlLayer({
-		url: 'http://zenpho.github.io/geosound/places.kml',
+		url: 'http://zenpho.github.io/geosound/zones.kml',
 		map: g_mapObj
 	  });
 
