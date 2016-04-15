@@ -38,10 +38,13 @@ function initGoogleMap() {
 		}
 	  });
 	  
-	g_kmlLayer = new google.maps.KmlLayer({
-		url: 'http://zenpho.github.io/geosound/zpo.kml',
+	var kmlOpt = {
+		suppressInfoWindows: true,
+		preserveViewport: false,
 		map: g_mapObj
-	  });
+	};
+	var kmlUrl = 'http://zenpho.github.io/geosound/zpo.kml';
+	g_kmlLayer = new google.maps.KmlLayer(kmlUrl, kmlOpt);
 
 	/*
 	google.maps.event.addListener(g_mapObj, 'mousemove', function (event) {
@@ -52,6 +55,12 @@ function initGoogleMap() {
 	g_kmlLayer.addListener('click', function(kmlEvent) {
 		console.log(kmlEvent.featureData);
 	});
+
+	g_kmlLayer.addListener('mousemove', function(kmlEvent) {
+		console.log(kmlEvent);
+	});
+
+
 }
 
 // //////
