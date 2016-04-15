@@ -52,11 +52,9 @@ function initGoogleMap() {
 	}
 	kmlToGeoJson(kmlUrl);
 			
-	/*
 	google.maps.event.addListener(g_mapObj, 'mousemove', function (event) {
 		displayCoordinates(event.latLng);               
 	});
-	*/
 }
 
 // //////
@@ -88,9 +86,12 @@ function playSoundForLocation(location) {
 function displayCoordinates(latlng) {
 	var lat = latlng.lat();
 	var lng = latlng.lng();
-	console.log("Mousepos " + lat + ", " + lng);
+	console.log("Mousepos " + lat + ", " + lng);	
 }
 
+function audioFunction(feature) {
+
+}
 
 function getLocation() {
 	var output = document.getElementById("output");
