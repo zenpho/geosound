@@ -38,29 +38,25 @@ function initGoogleMap() {
 		}
 	  });
 	  
-	var kmlOpt = {
-		suppressInfoWindows: true,
-		preserveViewport: false,
-		map: g_mapObj
-	};
 	var kmlUrl = 'http://zenpho.github.io/geosound/zpo.kml';
-	g_kmlLayer = new google.maps.KmlLayer(kmlUrl, kmlOpt);
-
+	function kmlToGeoJson(url)
+	{
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', kmlUrl, true);
+		xhr.onload = function() {
+		  var geoJson = toGeoJSON.kml(this.responseXML);
+		  console.log(geoJson);
+		  g_mapObj.data.addGeoJson(geoJson);
+		};
+		xhr.send();
+	}
+	kmlToGeoJson(kmlUrl);
+			
 	/*
 	google.maps.event.addListener(g_mapObj, 'mousemove', function (event) {
 		displayCoordinates(event.latLng);               
 	});
 	*/
-	
-	g_kmlLayer.addListener('click', function(kmlEvent) {
-		console.log(kmlEvent.featureData);
-	});
-
-	g_kmlLayer.addListener('mousemove', function(kmlEvent) {
-		console.log(kmlEvent);
-	});
-
-
 }
 
 // //////
