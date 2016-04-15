@@ -8,10 +8,10 @@ function resolveTrack(url)
 	SC.get(
 		"/resolve.json?url=" + url, 
 		{limit:1}, 
-		resolveTrack
+		resolveTrackID
 	);
 	
-	function resolveTrack(obj){
+	function resolveTrackID(obj){
 		var xhr;
 		try{
 			xhr = obj.request.response;
