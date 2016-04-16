@@ -1,24 +1,34 @@
+var g_scClientId = '790956356ed17e41bfaa38f216122674'; // zenpho
+var g_scResp;
+var g_scPlayer;
+
 // initialise soundcloud API
-SC.initialize({
-  client_id: '790956356ed17e41bfaa38f216122674' // zenpho
-});
+SC.initialize({ client_id: g_scClientId });
 
 function scResolveTrack(url)
 {
 	console.log("resolve " + url);
 	
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', "http://soundcloud.com/resolve.json?url="+url, true);
+	var xhrUrl = "http://api.soundcloud.com/resolve?url=" +
+		url +
+		"&client_id=" +
+		g_scClientId;
+	xhr.open('GET', xhrUrl, true);
 	xhr.onload = function() {
-		var resp = this.response;
-		console.log(resp);
-	}
+		var json = JSON.parse(this.responseText);
+		g_scResp = json;
+		var id = json.id;
+		scPlayTrack(id);
+	};
 	xhr.send();
 }
 
 function scPlayTrack(trackId)
 {
-	SC.stream('/tracks/' + trackId).then(function(player){
+	var trackUri = "/tracks/" + trackId;
+	console.log(trackUri);
+	SC.stream(trackUri).then(function(player){
 	  player.play();
 	});
 }
@@ -36,7 +46,7 @@ var g_kmlLayer;
 
 function initGoogleMap() {	
 	g_mapObj = new google.maps.Map(document.getElementById('map'), {
-	  center: {lat: 51, lng: -2},
+	  center: {lat: 51.5, lng: -2.5},
 	  zoom: 10,
 	});
 	
@@ -64,6 +74,7 @@ function initGoogleMap() {
 
 			// bind mouseover event to playAudioForFeature()
 			g_mapObj.data.addListener('mouseover', playAudioForFeature);
+			g_mapObj.data.addListener('mouseout', stopAudioForFeature);
 			
 			// display each feature description
 			//g_mapObj.data.forEach(function(f){console.log(f.R.description)})
@@ -99,6 +110,14 @@ function playAudioForFeature(event) {
 	var description = feature.getProperty('description');
 	console.log("playAudioForFeature " + description);	
 	scResolveTrack(description);
+}
+
+function stopAudioForFeature(event) {
+	var feature = event.feature;
+	var description = feature.getProperty('description');
+	console.log("stopAudioForFeature " + description);	
+	if ( g_scPlayer !== undefined )
+		g_scPlayer.pause();
 }
 
 function getLocation() {
